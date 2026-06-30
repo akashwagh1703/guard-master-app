@@ -30,9 +30,9 @@ export default function SettingsScreen({ navigation }) {
           <SettingItem icon={Moon} label="Theme" value="Light (Dark — coming soon)" />
           <SettingItem icon={Shield} label="Privacy Policy" />
           <SettingItem icon={HelpCircle} label="Help & Support" />
-          <SettingItem icon={Info} label="About SecureGuard" value="Enterprise Workforce App" />
+          <SettingItem icon={Info} label="About GuardMaster" value="Smart Security Platform" />
         </Card></FadeIn>
-        <FadeIn delay={100}><Text style={styles.version}>SecureGuard v1.0.0 · Build 2026.06</Text></FadeIn>
+        <FadeIn delay={100}><Text style={styles.version}>GuardMaster v1.0.0 · Build 2026.06</Text></FadeIn>
       </ScrollView>
     </View>
   );

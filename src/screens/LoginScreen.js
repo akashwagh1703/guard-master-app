@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Eye, EyeOff, Shield, Fingerprint, Lock } from 'lucide-react-native';
+import { Eye, EyeOff, Fingerprint, Lock } from 'lucide-react-native';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { FadeIn } from '../components/Loading';
@@ -11,6 +11,8 @@ import colors from '../theme/colors';
 import spacing, { shadows } from '../theme/spacing';
 import typography from '../theme/typography';
 import fonts from '../theme/fonts';
+
+const logoBrand = require('../../assets/logo-brand.png');
 
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
@@ -44,9 +46,8 @@ export default function LoginScreen() {
       <LinearGradient colors={colors.gradient.hero} style={[styles.header, { paddingTop: insets.top + spacing.xxxl }]}>
         <FadeIn>
           <View style={styles.logoWrap}>
-            <Shield size={40} color={colors.primary} strokeWidth={1.5} />
+            <Image source={logoBrand} style={styles.logoImage} resizeMode="contain" />
           </View>
-          <Text style={styles.brand}>SecureGuard</Text>
           <Text style={styles.tagline}>Guard Duty App</Text>
         </FadeIn>
       </LinearGradient>
@@ -85,7 +86,7 @@ export default function LoginScreen() {
             </View>
           </FadeIn>
 
-          <Text style={styles.version}>SecureGuard · Version 1.0.0</Text>
+          <Text style={styles.version}>GuardMaster · Version 1.0.0</Text>
         </ScrollView>
       </KeyboardAvoidingView>
     </View>
@@ -95,7 +96,8 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   wrap: { flex: 1, backgroundColor: colors.background },
   header: { alignItems: 'center', paddingBottom: spacing.xxxl + 20, borderBottomLeftRadius: 32, borderBottomRightRadius: 32 },
-  logoWrap: { width: 80, height: 80, borderRadius: 24, backgroundColor: '#FFF', alignItems: 'center', justifyContent: 'center', marginBottom: spacing.lg, ...shadows.lg },
+  logoWrap: { width: 260, height: 120, borderRadius: 20, backgroundColor: '#FFF', alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md, paddingHorizontal: spacing.md, ...shadows.lg },
+  logoImage: { width: '100%', height: '100%' },
   brand: { fontFamily: fonts.bold, fontSize: 28, color: '#FFF', letterSpacing: 0.5 },
   tagline: { fontFamily: fonts.medium, fontSize: 15, color: 'rgba(255,255,255,0.8)', marginTop: 6 },
   formWrap: { flex: 1, marginTop: -spacing.xxxl },
