@@ -24,7 +24,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "export:web": "expo export --platform web && rm -rf dist-web && mv dist dist-web"
   },
   "private": true
 }
